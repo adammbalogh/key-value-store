@@ -1,0 +1,29 @@
+{
+    "name": "adammbalogh/key-value-store",
+    "description": "Key-value store generic package. It contains abstractions.",
+    "keywords": ["key", "value", "key-value", "store", "nosql"],
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Adam Balogh",
+            "email": "baloghbh@gmail.com",
+            "homepage": "http://code-chronicle.blogspot.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~4.2.5",
+        "squizlabs/php_codesniffer": "~1.5",
+        "phpmd/phpmd": "~2.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "AdammBalogh\\KeyValueStore\\": "src"
+        }
+    },
+    "minimum-stability": "stable"
+}

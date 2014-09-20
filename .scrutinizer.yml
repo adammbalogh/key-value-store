@@ -2,12 +2,6 @@ filter:
   paths: [src/*]
 tools:
   php_analyzer: true
-  php_changetracking: true
-  php_cpd: true
-  php_mess_detector: true
-  php_pdepend: true
-  php_sim: true
-  sensiolabs_security_checker: true
 checks:
   php:
     code_rating: true

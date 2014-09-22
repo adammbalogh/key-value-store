@@ -5,7 +5,7 @@ use AdammBalogh\KeyValueStore\Exception\KeyNotFoundException;
 
 trait KeyTrait
 {
-    use AdapterTrait;
+    use AdapterTrait, ValidatorTrait;
 
     /**
      * @param string $key
@@ -17,7 +17,9 @@ trait KeyTrait
      */
     public function delete($key)
     {
-        $this->adapter->delete($key);
+        $this->checkString($key);
+
+        return $this->adapter->delete($key);
     }
 
     /**
@@ -31,7 +33,10 @@ trait KeyTrait
      */
     public function expire($key, $seconds)
     {
-        $this->adapter->expire($key, $seconds);
+        $this->checkString($key);
+        $this->checkInteger($seconds);
+
+        return $this->adapter->expire($key, $seconds);
     }
 
     /**
@@ -45,7 +50,10 @@ trait KeyTrait
      */
     public function expireAt($key, $timestamp)
     {
-        $this->adapter->expireAt($key, $timestamp);
+        $this->checkString($key);
+        $this->checkInteger($timestamp);
+
+        return $this->adapter->expireAt($key, $timestamp);
     }
 
     /**
@@ -53,7 +61,7 @@ trait KeyTrait
      */
     public function getKeys()
     {
-        $this->adapter->getKeys();
+        return $this->adapter->getKeys();
     }
 
     /**
@@ -69,7 +77,9 @@ trait KeyTrait
      */
     public function getTtl($key)
     {
-        $this->adapter->getTtl($key);
+        $this->checkString($key);
+
+        return $this->adapter->getTtl($key);
     }
 
     /**
@@ -81,7 +91,9 @@ trait KeyTrait
      */
     public function has($key)
     {
-        $this->adapter->has($key);
+        $this->checkString($key);
+
+        return $this->adapter->has($key);
     }
 
     /**
@@ -97,6 +109,8 @@ trait KeyTrait
      */
     public function persist($key)
     {
-        $this->adapter->persist($key);
+        $this->checkString($key);
+
+        return $this->adapter->persist($key);
     }
 }

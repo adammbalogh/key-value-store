@@ -6,7 +6,7 @@ use AdammBalogh\KeyValueStore\Exception\KeyNotFoundException;
 
 trait StringTrait
 {
-    use AdapterTrait;
+    use AdapterTrait, ValidatorTrait;
 
     /**
      * @param string $key
@@ -20,7 +20,10 @@ trait StringTrait
      */
     public function append($key, $value)
     {
-        $this->adapter->append($key, $value);
+        $this->checkString($key);
+        $this->checkString($value);
+
+        return $this->adapter->append($key, $value);
     }
 
     /**
@@ -34,7 +37,9 @@ trait StringTrait
      */
     public function decrement($key)
     {
-        $this->adapter->decrement($key);
+        $this->checkString($key);
+
+        return $this->adapter->decrement($key);
     }
 
     /**
@@ -49,7 +54,10 @@ trait StringTrait
      */
     public function decrementBy($key, $decrement)
     {
-        $this->adapter->decrementBy($key, $decrement);
+        $this->checkString($key);
+        $this->checkInteger($decrement);
+
+        return $this->adapter->decrementBy($key, $decrement);
     }
 
     /**
@@ -63,7 +71,9 @@ trait StringTrait
      */
     public function get($key)
     {
-        $this->adapter->get($key);
+        $this->checkString($key);
+
+        return $this->adapter->get($key);
     }
 
     /**
@@ -77,7 +87,9 @@ trait StringTrait
      */
     public function getValueLength($key)
     {
-        $this->adapter->getValueLength($key);
+        $this->checkString($key);
+
+        return $this->adapter->getValueLength($key);
     }
 
     /**
@@ -91,7 +103,9 @@ trait StringTrait
      */
     public function increment($key)
     {
-        $this->adapter->increment($key);
+        $this->checkString($key);
+
+        return $this->adapter->increment($key);
     }
 
     /**
@@ -106,7 +120,10 @@ trait StringTrait
      */
     public function incrementBy($key, $increment)
     {
-        $this->adapter->incrementBy($key, $increment);
+        $this->checkString($key);
+        $this->checkInteger($increment);
+
+        return $this->adapter->incrementBy($key, $increment);
     }
 
     /**
@@ -119,7 +136,10 @@ trait StringTrait
      */
     public function set($key, $value)
     {
-        $this->adapter->set($key, $value);
+        $this->checkString($key);
+        $this->checkString($value);
+
+        return $this->adapter->set($key, $value);
     }
 
     /**
@@ -133,6 +153,9 @@ trait StringTrait
      */
     public function setIfNotExists($key, $value)
     {
-        $this->adapter->setIfNotExists($key, $value);
+        $this->checkString($key);
+        $this->checkString($value);
+
+        return $this->adapter->setIfNotExists($key, $value);
     }
 }

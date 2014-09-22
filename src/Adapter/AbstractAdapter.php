@@ -11,4 +11,9 @@ abstract class AbstractAdapter implements AdapterInterface
     {
         return $this;
     }
+
+    /**
+     * @return mixed
+     */
+    abstract public function getClient();
 }

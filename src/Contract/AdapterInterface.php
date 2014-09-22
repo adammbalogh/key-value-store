@@ -1,6 +1,6 @@
 <?php namespace AdammBalogh\KeyValueStore\Contract;
 
-interface AdapterInterface extends KeyInterface, StringInterface
+interface AdapterInterface extends KeyInterface, StringInterface, ServerInterface
 {
     /**
      * @return AdapterInterface

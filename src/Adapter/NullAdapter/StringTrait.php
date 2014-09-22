@@ -1,6 +1,5 @@
 <?php namespace AdammBalogh\KeyValueStore\Adapter\NullAdapter;
 
-use AdammBalogh\KeyValueStore\Exception\KeyAlreadyExistsException;
 use AdammBalogh\KeyValueStore\Exception\KeyNotFoundException;
 
 /**
@@ -129,7 +128,7 @@ trait StringTrait
      * @return bool True if the set was successful, false if it was unsuccessful
      *
      * @throws \InvalidArgumentException
-     * @throws KeyAlreadyExistsException
+     * @throws \AdammBalogh\KeyValueStore\Exception\KeyAlreadyExistsException
      */
     public function setIfNotExists($key, $value)
     {

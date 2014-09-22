@@ -8,8 +8,6 @@ use AdammBalogh\KeyValueStore\Exception\KeyNotFoundException;
  */
 trait StringTrait
 {
-    use ClientTrait;
-
     /**
      * @param string $key
      * @param string $value

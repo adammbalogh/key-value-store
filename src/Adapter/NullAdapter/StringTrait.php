@@ -1,12 +1,15 @@
-<?php namespace AdammBalogh\KeyValueStore\Implementation;
+<?php namespace AdammBalogh\KeyValueStore\Adapter\NullAdapter;
 
 use AdammBalogh\KeyValueStore\Exception\InternalException;
 use AdammBalogh\KeyValueStore\Exception\KeyAlreadyExistsException;
 use AdammBalogh\KeyValueStore\Exception\KeyNotFoundException;
 
+/**
+ * @SuppressWarnings(PHPMD.UnusedFormalParameter)
+ */
 trait StringTrait
 {
-    use AdapterTrait;
+    use ClientTrait;
 
     /**
      * @param string $key
@@ -20,7 +23,7 @@ trait StringTrait
      */
     public function append($key, $value)
     {
-        $this->adapter->append($key, $value);
+        throw new KeyNotFoundException();
     }
 
     /**
@@ -34,7 +37,7 @@ trait StringTrait
      */
     public function decrement($key)
     {
-        $this->adapter->decrement($key);
+        throw new KeyNotFoundException();
     }
 
     /**
@@ -49,7 +52,7 @@ trait StringTrait
      */
     public function decrementBy($key, $decrement)
     {
-        $this->adapter->decrementBy($key, $decrement);
+        throw new KeyNotFoundException();
     }
 
     /**
@@ -63,7 +66,7 @@ trait StringTrait
      */
     public function get($key)
     {
-        $this->adapter->get($key);
+        throw new KeyNotFoundException();
     }
 
     /**
@@ -77,7 +80,7 @@ trait StringTrait
      */
     public function getValueLength($key)
     {
-        $this->adapter->getValueLength($key);
+        throw new KeyNotFoundException();
     }
 
     /**
@@ -91,7 +94,7 @@ trait StringTrait
      */
     public function increment($key)
     {
-        $this->adapter->increment($key);
+        throw new KeyNotFoundException();
     }
 
     /**
@@ -106,7 +109,7 @@ trait StringTrait
      */
     public function incrementBy($key, $increment)
     {
-        $this->adapter->incrementBy($key, $increment);
+        throw new KeyNotFoundException();
     }
 
     /**
@@ -119,7 +122,7 @@ trait StringTrait
      */
     public function set($key, $value)
     {
-        $this->adapter->set($key, $value);
+        return false;
     }
 
     /**
@@ -133,6 +136,6 @@ trait StringTrait
      */
     public function setIfNotExists($key, $value)
     {
-        $this->adapter->setIfNotExists($key, $value);
+        return false;
     }
 }

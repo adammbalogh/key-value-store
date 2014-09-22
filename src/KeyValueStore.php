@@ -2,10 +2,12 @@
 
 use AdammBalogh\KeyValueStore\Contract\AdapterInterface;
 use AdammBalogh\KeyValueStore\Implementation\AdapterTrait;
+use AdammBalogh\KeyValueStore\Implementation\KeyTrait;
+use AdammBalogh\KeyValueStore\Implementation\StringTrait;
 
 class KeyValueStore implements AdapterInterface
 {
-    use AdapterTrait;
+    use AdapterTrait, KeyTrait, StringTrait;
 
     /**
      * @param AdapterInterface $adapter

@@ -1,10 +1,14 @@
-<?php namespace AdammBalogh\KeyValueStore\Contract;
+<?php namespace AdammBalogh\KeyValueStore\Adapter\NullAdapter;
 
-use AdammBalogh\KeyValueStore\Exception\InternalException;
 use AdammBalogh\KeyValueStore\Exception\KeyNotFoundException;
 
-interface KeyInterface
+/**
+ * @SuppressWarnings(PHPMD.UnusedFormalParameter)
+ */
+trait KeyTrait
 {
+    use ClientTrait;
+
     /**
      * @param string $key
      *
@@ -13,7 +17,10 @@ interface KeyInterface
      * @throws \InvalidArgumentException
      * @throws KeyNotFoundException
      */
-    public function delete($key);
+    public function delete($key)
+    {
+        throw new KeyNotFoundException();
+    }
 
     /**
      * @param string $key
@@ -24,7 +31,10 @@ interface KeyInterface
      * @throws \InvalidArgumentException
      * @throws KeyNotFoundException
      */
-    public function expire($key, $seconds);
+    public function expire($key, $seconds)
+    {
+        throw new KeyNotFoundException();
+    }
 
     /**
      * @param string $key
@@ -35,12 +45,18 @@ interface KeyInterface
      * @throws \InvalidArgumentException
      * @throws KeyNotFoundException
      */
-    public function expireAt($key, $timestamp);
+    public function expireAt($key, $timestamp)
+    {
+        throw new KeyNotFoundException();
+    }
 
     /**
      * @return array
      */
-    public function getKeys();
+    public function getKeys()
+    {
+        return [];
+    }
 
     /**
      * Returns the remaining time to live of a key that has a timeout.
@@ -53,7 +69,10 @@ interface KeyInterface
      * @throws KeyNotFoundException
      * @throws InternalException If the key exists but has no associated expire.
      */
-    public function getTtl($key);
+    public function getTtl($key)
+    {
+        throw new KeyNotFoundException();
+    }
 
     /**
      * @param string $key
@@ -62,7 +81,10 @@ interface KeyInterface
      *
      * @throws \InvalidArgumentException
      */
-    public function has($key);
+    public function has($key)
+    {
+        return false;
+    }
 
     /**
      * Remove the existing timeout on key, turning the key from volatile (a key with an expire set)
@@ -75,5 +97,8 @@ interface KeyInterface
      * @throws \InvalidArgumentException
      * @throws KeyNotFoundException
      */
-    public function persist($key);
+    public function persist($key)
+    {
+        throw new KeyNotFoundException();
+    }
 }

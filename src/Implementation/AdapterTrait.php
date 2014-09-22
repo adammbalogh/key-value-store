@@ -4,15 +4,13 @@ use AdammBalogh\KeyValueStore\Contract\AdapterInterface;
 
 trait AdapterTrait
 {
-    use KeyTrait, StringTrait;
-
     /**
      * @var AdapterInterface
      */
     protected $adapter;
 
     /**
-     * {@inheritdoc}
+     * @return AdapterInterface
      */
     public function getAdapter()
     {

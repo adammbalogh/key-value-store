@@ -1,11 +1,12 @@
 <?php namespace AdammBalogh\KeyValueStore\Implementation;
 
-use AdammBalogh\KeyValueStore\Contract\AdapterInterface;
-
 trait AdapterTrait
 {
     /**
-     * @var AdapterInterface
+     * @return \AdammBalogh\KeyValueStore\Contract\AdapterInterface
      */
-    protected $adapter;
+    public function getAdapter()
+    {
+        return $this->adapter;
+    }
 }

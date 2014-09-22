@@ -67,7 +67,7 @@ trait KeyTrait
      *
      * @throws \InvalidArgumentException
      * @throws KeyNotFoundException
-     * @throws InternalException If the key exists but has no associated expire.
+     * @throws \AdammBalogh\KeyValueStore\Exception\InternalException If the key exists but has no associated expire.
      */
     public function getTtl($key)
     {

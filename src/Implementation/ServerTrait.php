@@ -9,6 +9,6 @@ trait ServerTrait
      */
     public function flush()
     {
-        return $this->adapter->flush();
+        return $this->getAdapter()->flush();
     }
 }

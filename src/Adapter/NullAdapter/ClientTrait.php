@@ -3,7 +3,10 @@
 trait ClientTrait
 {
     /**
-     * @var null
+     * @return null
      */
-    protected $client;
+    public function getClient()
+    {
+        return $this->client;
+    }
 }

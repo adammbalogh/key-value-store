@@ -19,7 +19,7 @@ trait KeyTrait
     {
         $this->checkString($key);
 
-        return $this->adapter->delete($key);
+        return $this->getAdapter()->delete($key);
     }
 
     /**
@@ -36,7 +36,7 @@ trait KeyTrait
         $this->checkString($key);
         $this->checkInteger($seconds);
 
-        return $this->adapter->expire($key, $seconds);
+        return $this->getAdapter()->expire($key, $seconds);
     }
 
     /**
@@ -53,7 +53,7 @@ trait KeyTrait
         $this->checkString($key);
         $this->checkInteger($timestamp);
 
-        return $this->adapter->expireAt($key, $timestamp);
+        return $this->getAdapter()->expireAt($key, $timestamp);
     }
 
     /**
@@ -61,7 +61,7 @@ trait KeyTrait
      */
     public function getKeys()
     {
-        return $this->adapter->getKeys();
+        return $this->getAdapter()->getKeys();
     }
 
     /**
@@ -79,7 +79,7 @@ trait KeyTrait
     {
         $this->checkString($key);
 
-        return $this->adapter->getTtl($key);
+        return $this->getAdapter()->getTtl($key);
     }
 
     /**
@@ -93,7 +93,7 @@ trait KeyTrait
     {
         $this->checkString($key);
 
-        return $this->adapter->has($key);
+        return $this->getAdapter()->has($key);
     }
 
     /**
@@ -111,6 +111,6 @@ trait KeyTrait
     {
         $this->checkString($key);
 
-        return $this->adapter->persist($key);
+        return $this->getAdapter()->persist($key);
     }
 }

@@ -1,6 +1,5 @@
 <?php namespace AdammBalogh\KeyValueStore\Adapter\NullAdapter;
 
-use AdammBalogh\KeyValueStore\Exception\InternalException;
 use AdammBalogh\KeyValueStore\Exception\KeyAlreadyExistsException;
 use AdammBalogh\KeyValueStore\Exception\KeyNotFoundException;
 
@@ -19,7 +18,7 @@ trait StringTrait
      *
      * @throws \InvalidArgumentException
      * @throws KeyNotFoundException
-     * @throws InternalException
+     * @throws \AdammBalogh\KeyValueStore\Exception\InternalException
      */
     public function append($key, $value)
     {
@@ -33,7 +32,7 @@ trait StringTrait
      *
      * @throws \InvalidArgumentException
      * @throws KeyNotFoundException
-     * @throws InternalException
+     * @throws \AdammBalogh\KeyValueStore\Exception\InternalException
      */
     public function decrement($key)
     {
@@ -48,7 +47,7 @@ trait StringTrait
      *
      * @throws \InvalidArgumentException
      * @throws KeyNotFoundException
-     * @throws InternalException
+     * @throws \AdammBalogh\KeyValueStore\Exception\InternalException
      */
     public function decrementBy($key, $decrement)
     {
@@ -62,7 +61,7 @@ trait StringTrait
      *
      * @throws \InvalidArgumentException
      * @throws KeyNotFoundException
-     * @throws InternalException
+     * @throws \AdammBalogh\KeyValueStore\Exception\InternalException
      */
     public function get($key)
     {
@@ -76,7 +75,7 @@ trait StringTrait
      *
      * @throws \InvalidArgumentException
      * @throws KeyNotFoundException
-     * @throws InternalException
+     * @throws \AdammBalogh\KeyValueStore\Exception\InternalException
      */
     public function getValueLength($key)
     {
@@ -90,7 +89,7 @@ trait StringTrait
      *
      * @throws \InvalidArgumentException
      * @throws KeyNotFoundException
-     * @throws InternalException
+     * @throws \AdammBalogh\KeyValueStore\Exception\InternalException
      */
     public function increment($key)
     {
@@ -105,7 +104,7 @@ trait StringTrait
      *
      * @throws \InvalidArgumentException
      * @throws KeyNotFoundException
-     * @throws InternalException
+     * @throws \AdammBalogh\KeyValueStore\Exception\InternalException
      */
     public function incrementBy($key, $increment)
     {

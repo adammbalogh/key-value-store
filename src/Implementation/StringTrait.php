@@ -23,7 +23,7 @@ trait StringTrait
         $this->checkString($key);
         $this->checkString($value);
 
-        return $this->adapter->append($key, $value);
+        return $this->getAdapter()->append($key, $value);
     }
 
     /**
@@ -39,7 +39,7 @@ trait StringTrait
     {
         $this->checkString($key);
 
-        return $this->adapter->decrement($key);
+        return $this->getAdapter()->decrement($key);
     }
 
     /**
@@ -57,7 +57,7 @@ trait StringTrait
         $this->checkString($key);
         $this->checkInteger($decrement);
 
-        return $this->adapter->decrementBy($key, $decrement);
+        return $this->getAdapter()->decrementBy($key, $decrement);
     }
 
     /**
@@ -73,7 +73,7 @@ trait StringTrait
     {
         $this->checkString($key);
 
-        return $this->adapter->get($key);
+        return $this->getAdapter()->get($key);
     }
 
     /**
@@ -89,7 +89,7 @@ trait StringTrait
     {
         $this->checkString($key);
 
-        return $this->adapter->getValueLength($key);
+        return $this->getAdapter()->getValueLength($key);
     }
 
     /**
@@ -105,7 +105,7 @@ trait StringTrait
     {
         $this->checkString($key);
 
-        return $this->adapter->increment($key);
+        return $this->getAdapter()->increment($key);
     }
 
     /**
@@ -123,7 +123,7 @@ trait StringTrait
         $this->checkString($key);
         $this->checkInteger($increment);
 
-        return $this->adapter->incrementBy($key, $increment);
+        return $this->getAdapter()->incrementBy($key, $increment);
     }
 
     /**
@@ -139,7 +139,7 @@ trait StringTrait
         $this->checkString($key);
         $this->checkString($value);
 
-        return $this->adapter->set($key, $value);
+        return $this->getAdapter()->set($key, $value);
     }
 
     /**
@@ -156,6 +156,6 @@ trait StringTrait
         $this->checkString($key);
         $this->checkString($value);
 
-        return $this->adapter->setIfNotExists($key, $value);
+        return $this->getAdapter()->setIfNotExists($key, $value);
     }
 }

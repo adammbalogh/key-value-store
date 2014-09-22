@@ -7,13 +7,14 @@ use AdammBalogh\KeyValueStore\Adapter\NullAdapter\StringTrait;
 
 class NullAdapter extends AbstractAdapter
 {
-    use ClientTrait, KeyTrait, StringTrait, ServerTrait;
+    use ClientTrait, KeyTrait, StringTrait, ServerTrait {
+        ClientTrait::getClient insteadof KeyTrait;
+        ClientTrait::getClient insteadof StringTrait;
+        ClientTrait::getClient insteadof ServerTrait;
+    }
 
     /**
-     * @return null
+     * @var null
      */
-    public function getClient()
-    {
-        return $this->client;
-    }
+    protected $client;
 }

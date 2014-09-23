@@ -26,5 +26,8 @@
             "AdammBalogh\\KeyValueStore\\": "src"
         }
     },
-    "minimum-stability": "stable"
+    "minimum-stability": "stable",
+    "suggest": {
+        "adammbalogh/key-value-store-file": "For using File storage"
+    }
 }

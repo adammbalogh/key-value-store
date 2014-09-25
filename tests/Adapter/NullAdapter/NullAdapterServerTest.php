@@ -15,9 +15,12 @@ class NullAdapterServerTest extends \PHPUnit_Framework_TestCase
         $this->kvs = new KeyValueStore(new NullAdapter());
     }
 
+    /**
+     * @expectedException \AdammBalogh\KeyValueStore\Exception\InternalException
+     */
     public function testFlush()
     {
-        $this->assertFalse($this->kvs->flush());
+        $this->kvs->flush();
     }
 
     public function tearDown()

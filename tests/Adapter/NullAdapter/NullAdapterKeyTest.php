@@ -15,28 +15,19 @@ class NullAdapterKeyTest extends \PHPUnit_Framework_TestCase
         $this->kvs = new KeyValueStore(new NullAdapter());
     }
 
-    /**
-     * @expectedException \AdammBalogh\KeyValueStore\Exception\KeyNotFoundException
-     */
     public function testDelete()
     {
-        $this->kvs->delete('key');
+        $this->assertFalse($this->kvs->delete('key'));
     }
 
-    /**
-     * @expectedException \AdammBalogh\KeyValueStore\Exception\KeyNotFoundException
-     */
     public function testExpire()
     {
-        $this->kvs->expire('key', 0);
+        $this->assertFalse($this->kvs->expire('key', 0));
     }
 
-    /**
-     * @expectedException \AdammBalogh\KeyValueStore\Exception\KeyNotFoundException
-     */
     public function testExpireAt()
     {
-        $this->kvs->expireAt('key', time());
+        $this->assertFalse($this->kvs->expireAt('key', time()));
     }
 
     public function testKeys()
@@ -57,12 +48,9 @@ class NullAdapterKeyTest extends \PHPUnit_Framework_TestCase
         $this->assertFalse($this->kvs->has('key'));
     }
 
-    /**
-     * @expectedException \AdammBalogh\KeyValueStore\Exception\KeyNotFoundException
-     */
     public function testPersist()
     {
-        $this->kvs->persist('key');
+        $this->assertFalse($this->kvs->persist('key'));
     }
 
     public function tearDown()

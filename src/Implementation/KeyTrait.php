@@ -10,16 +10,20 @@ trait KeyTrait
     /**
      * @param string $key
      *
-     * @return bool True if the deletion was successful, false if it was unsuccessful.
+     * @return bool True if the deletion was successful, false if the deletion was unsuccessful.
      *
      * @throws \InvalidArgumentException
-     * @throws KeyNotFoundException
+     * @throws InternalException
      */
     public function delete($key)
     {
         $this->checkString($key);
 
-        return $this->getAdapter()->delete($key);
+        try {
+            return $this->getAdapter()->delete($key);
+        } catch (\Exception $e) {
+            throw new InternalException($e->getMessage(), $e->getCode(), $e);
+        }
     }
 
     /**
@@ -29,14 +33,18 @@ trait KeyTrait
      * @return bool True if the timeout was set, false if the timeout could not be set.
      *
      * @throws \InvalidArgumentException
-     * @throws KeyNotFoundException
+     * @throws InternalException
      */
     public function expire($key, $seconds)
     {
         $this->checkString($key);
         $this->checkInteger($seconds);
 
-        return $this->getAdapter()->expire($key, $seconds);
+        try {
+            return $this->getAdapter()->expire($key, $seconds);
+        } catch (\Exception $e) {
+            throw new InternalException($e->getMessage(), $e->getCode(), $e);
+        }
     }
 
     /**
@@ -46,22 +54,32 @@ trait KeyTrait
      * @return bool True if the timeout was set, false if the timeout could not be set.
      *
      * @throws \InvalidArgumentException
-     * @throws KeyNotFoundException
+     * @throws InternalException
      */
     public function expireAt($key, $timestamp)
     {
         $this->checkString($key);
         $this->checkInteger($timestamp);
 
-        return $this->getAdapter()->expireAt($key, $timestamp);
+        try {
+            return $this->getAdapter()->expireAt($key, $timestamp);
+        } catch (\Exception $e) {
+            throw new InternalException($e->getMessage(), $e->getCode(), $e);
+        }
     }
 
     /**
      * @return array
+     *
+     * @throws InternalException
      */
     public function getKeys()
     {
-        return $this->getAdapter()->getKeys();
+        try {
+            return $this->getAdapter()->getKeys();
+        } catch (\Exception $e) {
+            throw new InternalException($e->getMessage(), $e->getCode(), $e);
+        }
     }
 
     /**
@@ -73,13 +91,19 @@ trait KeyTrait
      *
      * @throws \InvalidArgumentException
      * @throws KeyNotFoundException
-     * @throws InternalException If the key exists but has no associated expire.
+     * @throws InternalException
      */
     public function getTtl($key)
     {
         $this->checkString($key);
 
-        return $this->getAdapter()->getTtl($key);
+        try {
+            return $this->getAdapter()->getTtl($key);
+        } catch (KeyNotFoundException $e) {
+            throw $e;
+        } catch (\Exception $e) {
+            throw new InternalException($e->getMessage(), $e->getCode(), $e);
+        }
     }
 
     /**
@@ -88,12 +112,17 @@ trait KeyTrait
      * @return bool True if the key does exist, false if the key does not exist.
      *
      * @throws \InvalidArgumentException
+     * @throws InternalException
      */
     public function has($key)
     {
         $this->checkString($key);
 
-        return $this->getAdapter()->has($key);
+        try {
+            return $this->getAdapter()->has($key);
+        } catch (\Exception $e) {
+            throw new InternalException($e->getMessage(), $e->getCode(), $e);
+        }
     }
 
     /**
@@ -105,12 +134,16 @@ trait KeyTrait
      * @return bool True if the persist was success, false if the persis was unsuccessful.
      *
      * @throws \InvalidArgumentException
-     * @throws KeyNotFoundException
+     * @throws InternalException
      */
     public function persist($key)
     {
         $this->checkString($key);
 
-        return $this->getAdapter()->persist($key);
+        try {
+            return $this->getAdapter()->persist($key);
+        } catch (\Exception $e) {
+            throw new InternalException($e->getMessage(), $e->getCode(), $e);
+        }
     }
 }

@@ -8,10 +8,10 @@ interface KeyInterface
     /**
      * @param string $key
      *
-     * @return bool True if the deletion was successful, false if it was unsuccessful.
+     * @return bool True if the deletion was successful, false if the deletion was unsuccessful.
      *
      * @throws \InvalidArgumentException
-     * @throws KeyNotFoundException
+     * @throws InternalException
      */
     public function delete($key);
 
@@ -22,7 +22,7 @@ interface KeyInterface
      * @return bool True if the timeout was set, false if the timeout could not be set.
      *
      * @throws \InvalidArgumentException
-     * @throws KeyNotFoundException
+     * @throws InternalException
      */
     public function expire($key, $seconds);
 
@@ -33,12 +33,14 @@ interface KeyInterface
      * @return bool True if the timeout was set, false if the timeout could not be set.
      *
      * @throws \InvalidArgumentException
-     * @throws KeyNotFoundException
+     * @throws InternalException
      */
     public function expireAt($key, $timestamp);
 
     /**
      * @return array
+     *
+     * @throws InternalException
      */
     public function getKeys();
 
@@ -51,7 +53,7 @@ interface KeyInterface
      *
      * @throws \InvalidArgumentException
      * @throws KeyNotFoundException
-     * @throws InternalException If the key exists but has no associated expire.
+     * @throws InternalException
      */
     public function getTtl($key);
 
@@ -61,6 +63,7 @@ interface KeyInterface
      * @return bool True if the key does exist, false if the key does not exist.
      *
      * @throws \InvalidArgumentException
+     * @throws InternalException
      */
     public function has($key);
 
@@ -73,7 +76,7 @@ interface KeyInterface
      * @return bool True if the persist was success, false if the persis was unsuccessful.
      *
      * @throws \InvalidArgumentException
-     * @throws KeyNotFoundException
+     * @throws InternalException
      */
     public function persist($key);
 }

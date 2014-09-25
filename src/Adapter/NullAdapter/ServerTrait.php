@@ -1,12 +1,16 @@
 <?php namespace AdammBalogh\KeyValueStore\Adapter\NullAdapter;
 
+use AdammBalogh\KeyValueStore\Exception\InternalException;
+
 trait ServerTrait
 {
     /**
-     * @return bool True if the persist was success, false if the persis was unsuccessful.
+     * @return void
+     *
+     * @throws InternalException
      */
     public function flush()
     {
-        return false;
+        throw new InternalException();
     }
 }

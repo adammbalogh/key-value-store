@@ -10,42 +10,33 @@ trait KeyTrait
     /**
      * @param string $key
      *
-     * @return bool True if the deletion was successful, false if it was unsuccessful.
-     *
-     * @throws \InvalidArgumentException
-     * @throws KeyNotFoundException
+     * @return false
      */
     public function delete($key)
     {
-        throw new KeyNotFoundException();
+        return false;
     }
 
     /**
      * @param string $key
      * @param int $seconds
      *
-     * @return bool True if the timeout was set, false if the timeout could not be set.
-     *
-     * @throws \InvalidArgumentException
-     * @throws KeyNotFoundException
+     * @return false
      */
     public function expire($key, $seconds)
     {
-        throw new KeyNotFoundException();
+        return false;
     }
 
     /**
      * @param string $key
      * @param int $timestamp
      *
-     * @return bool True if the timeout was set, false if the timeout could not be set.
-     *
-     * @throws \InvalidArgumentException
-     * @throws KeyNotFoundException
+     * @return false
      */
     public function expireAt($key, $timestamp)
     {
-        throw new KeyNotFoundException();
+        return false;
     }
 
     /**
@@ -61,11 +52,7 @@ trait KeyTrait
      *
      * @param string $key
      *
-     * @return int Ttl in seconds
-     *
-     * @throws \InvalidArgumentException
      * @throws KeyNotFoundException
-     * @throws \AdammBalogh\KeyValueStore\Exception\InternalException If the key exists but has no associated expire.
      */
     public function getTtl($key)
     {
@@ -75,9 +62,7 @@ trait KeyTrait
     /**
      * @param string $key
      *
-     * @return bool True if the key does exist, false if the key does not exist.
-     *
-     * @throws \InvalidArgumentException
+     * @return false
      */
     public function has($key)
     {
@@ -90,13 +75,10 @@ trait KeyTrait
      *
      * @param string $key
      *
-     * @return bool True if the persist was success, false if the persis was unsuccessful.
-     *
-     * @throws \InvalidArgumentException
-     * @throws KeyNotFoundException
+     * @return false
      */
     public function persist($key)
     {
-        throw new KeyNotFoundException();
+        return false;
     }
 }

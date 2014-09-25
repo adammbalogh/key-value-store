@@ -3,7 +3,9 @@
 interface ServerInterface
 {
     /**
-     * @return bool True if the persist was success, false if the persis was unsuccessful.
+     * @return void
+     *
+     * @throws \AdammBalogh\KeyValueStore\Exception\InternalException
      */
     public function flush();
 }

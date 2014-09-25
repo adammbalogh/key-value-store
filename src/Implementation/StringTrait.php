@@ -1,7 +1,6 @@
 <?php namespace AdammBalogh\KeyValueStore\Implementation;
 
 use AdammBalogh\KeyValueStore\Exception\InternalException;
-use AdammBalogh\KeyValueStore\Exception\KeyAlreadyExistsException;
 use AdammBalogh\KeyValueStore\Exception\KeyNotFoundException;
 
 trait StringTrait
@@ -23,7 +22,13 @@ trait StringTrait
         $this->checkString($key);
         $this->checkString($value);
 
-        return $this->getAdapter()->append($key, $value);
+        try {
+            return $this->getAdapter()->append($key, $value);
+        } catch (KeyNotFoundException $e) {
+            throw $e;
+        } catch (\Exception $e) {
+            throw new InternalException($e->getMessage(), $e->getCode(), $e);
+        }
     }
 
     /**
@@ -39,7 +44,13 @@ trait StringTrait
     {
         $this->checkString($key);
 
-        return $this->getAdapter()->decrement($key);
+        try {
+            return $this->getAdapter()->decrement($key);
+        } catch (KeyNotFoundException $e) {
+            throw $e;
+        } catch (\Exception $e) {
+            throw new InternalException($e->getMessage(), $e->getCode(), $e);
+        }
     }
 
     /**
@@ -57,7 +68,13 @@ trait StringTrait
         $this->checkString($key);
         $this->checkInteger($decrement);
 
-        return $this->getAdapter()->decrementBy($key, $decrement);
+        try {
+            return $this->getAdapter()->decrementBy($key, $decrement);
+        } catch (KeyNotFoundException $e) {
+            throw $e;
+        } catch (\Exception $e) {
+            throw new InternalException($e->getMessage(), $e->getCode(), $e);
+        }
     }
 
     /**
@@ -73,7 +90,13 @@ trait StringTrait
     {
         $this->checkString($key);
 
-        return $this->getAdapter()->get($key);
+        try {
+            return $this->getAdapter()->get($key);
+        } catch (KeyNotFoundException $e) {
+            throw $e;
+        } catch (\Exception $e) {
+            throw new InternalException($e->getMessage(), $e->getCode(), $e);
+        }
     }
 
     /**
@@ -89,7 +112,13 @@ trait StringTrait
     {
         $this->checkString($key);
 
-        return $this->getAdapter()->getValueLength($key);
+        try {
+            return $this->getAdapter()->getValueLength($key);
+        } catch (KeyNotFoundException $e) {
+            throw $e;
+        } catch (\Exception $e) {
+            throw new InternalException($e->getMessage(), $e->getCode(), $e);
+        }
     }
 
     /**
@@ -105,7 +134,13 @@ trait StringTrait
     {
         $this->checkString($key);
 
-        return $this->getAdapter()->increment($key);
+        try {
+            return $this->getAdapter()->increment($key);
+        } catch (KeyNotFoundException $e) {
+            throw $e;
+        } catch (\Exception $e) {
+            throw new InternalException($e->getMessage(), $e->getCode(), $e);
+        }
     }
 
     /**
@@ -123,7 +158,13 @@ trait StringTrait
         $this->checkString($key);
         $this->checkInteger($increment);
 
-        return $this->getAdapter()->incrementBy($key, $increment);
+        try {
+            return $this->getAdapter()->incrementBy($key, $increment);
+        } catch (KeyNotFoundException $e) {
+            throw $e;
+        } catch (\Exception $e) {
+            throw new InternalException($e->getMessage(), $e->getCode(), $e);
+        }
     }
 
     /**
@@ -133,13 +174,18 @@ trait StringTrait
      * @return bool True if the set was successful, false if it was unsuccessful
      *
      * @throws \InvalidArgumentException
+     * @throws InternalException
      */
     public function set($key, $value)
     {
         $this->checkString($key);
         $this->checkString($value);
 
-        return $this->getAdapter()->set($key, $value);
+        try {
+            return $this->getAdapter()->set($key, $value);
+        } catch (\Exception $e) {
+            throw new InternalException($e->getMessage(), $e->getCode(), $e);
+        }
     }
 
     /**
@@ -149,13 +195,17 @@ trait StringTrait
      * @return bool True if the set was successful, false if it was unsuccessful
      *
      * @throws \InvalidArgumentException
-     * @throws KeyAlreadyExistsException
+     * @throws InternalException
      */
     public function setIfNotExists($key, $value)
     {
         $this->checkString($key);
         $this->checkString($value);
 
-        return $this->getAdapter()->setIfNotExists($key, $value);
+        try {
+            return $this->getAdapter()->setIfNotExists($key, $value);
+        } catch (\Exception $e) {
+            throw new InternalException($e->getMessage(), $e->getCode(), $e);
+        }
     }
 }

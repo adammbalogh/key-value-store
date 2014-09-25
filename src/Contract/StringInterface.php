@@ -1,7 +1,6 @@
 <?php namespace AdammBalogh\KeyValueStore\Contract;
 
 use AdammBalogh\KeyValueStore\Exception\InternalException;
-use AdammBalogh\KeyValueStore\Exception\KeyAlreadyExistsException;
 use AdammBalogh\KeyValueStore\Exception\KeyNotFoundException;
 
 interface StringInterface
@@ -93,6 +92,7 @@ interface StringInterface
      * @return bool True if the set was successful, false if it was unsuccessful
      *
      * @throws \InvalidArgumentException
+     * @throws InternalException
      */
     public function set($key, $value);
 
@@ -103,7 +103,7 @@ interface StringInterface
      * @return bool True if the set was successful, false if it was unsuccessful
      *
      * @throws \InvalidArgumentException
-     * @throws KeyAlreadyExistsException
+     * @throws InternalException
      */
     public function setIfNotExists($key, $value);
 }

@@ -1,4 +1,5 @@
 <?php namespace AdammBalogh\KeyValueStore\Adapter\NotImplementedAdapter;
+
 use AdammBalogh\KeyValueStore\Exception\NotImplementedException;
 
 /**

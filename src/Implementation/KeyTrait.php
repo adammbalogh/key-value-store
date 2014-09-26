@@ -1,11 +1,15 @@
 <?php namespace AdammBalogh\KeyValueStore\Implementation;
 
+use AdammBalogh\KeyValueStore\Adapter\Helper;
 use AdammBalogh\KeyValueStore\Exception\InternalException;
 use AdammBalogh\KeyValueStore\Exception\KeyNotFoundException;
 
+/**
+ * @SuppressWarnings(PHPMD.StaticAccess)
+ */
 trait KeyTrait
 {
-    use AdapterTrait, ValidatorTrait;
+    use AdapterTrait;
 
     /**
      * @param string $key
@@ -17,7 +21,7 @@ trait KeyTrait
      */
     public function delete($key)
     {
-        $this->checkString($key);
+        Helper::throwExIfNotString($key);
 
         try {
             return $this->getAdapter()->delete($key);
@@ -37,32 +41,11 @@ trait KeyTrait
      */
     public function expire($key, $seconds)
     {
-        $this->checkString($key);
-        $this->checkInteger($seconds);
+        Helper::throwExIfNotString($key);
+        Helper::throwExIfNotInteger($seconds);
 
         try {
             return $this->getAdapter()->expire($key, $seconds);
-        } catch (\Exception $e) {
-            throw new InternalException($e->getMessage(), $e->getCode(), $e);
-        }
-    }
-
-    /**
-     * @param string $key
-     * @param int $timestamp
-     *
-     * @return bool True if the timeout was set, false if the timeout could not be set.
-     *
-     * @throws \InvalidArgumentException
-     * @throws InternalException
-     */
-    public function expireAt($key, $timestamp)
-    {
-        $this->checkString($key);
-        $this->checkInteger($timestamp);
-
-        try {
-            return $this->getAdapter()->expireAt($key, $timestamp);
         } catch (\Exception $e) {
             throw new InternalException($e->getMessage(), $e->getCode(), $e);
         }
@@ -95,7 +78,7 @@ trait KeyTrait
      */
     public function getTtl($key)
     {
-        $this->checkString($key);
+        Helper::throwExIfNotString($key);
 
         try {
             return $this->getAdapter()->getTtl($key);
@@ -116,7 +99,7 @@ trait KeyTrait
      */
     public function has($key)
     {
-        $this->checkString($key);
+        Helper::throwExIfNotString($key);
 
         try {
             return $this->getAdapter()->has($key);
@@ -138,7 +121,7 @@ trait KeyTrait
      */
     public function persist($key)
     {
-        $this->checkString($key);
+        Helper::throwExIfNotString($key);
 
         try {
             return $this->getAdapter()->persist($key);

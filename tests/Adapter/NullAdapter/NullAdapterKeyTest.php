@@ -25,11 +25,6 @@ class NullAdapterKeyTest extends \PHPUnit_Framework_TestCase
         $this->assertFalse($this->kvs->expire('key', 0));
     }
 
-    public function testExpireAt()
-    {
-        $this->assertFalse($this->kvs->expireAt('key', time()));
-    }
-
     public function testKeys()
     {
         $this->assertEquals([], $this->kvs->getKeys());

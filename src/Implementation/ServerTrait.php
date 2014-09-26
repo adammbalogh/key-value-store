@@ -4,7 +4,7 @@ use AdammBalogh\KeyValueStore\Exception\InternalException;
 
 trait ServerTrait
 {
-    use AdapterTrait, ValidatorTrait;
+    use AdapterTrait;
 
     /**
      * @return void

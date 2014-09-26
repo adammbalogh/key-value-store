@@ -29,17 +29,6 @@ trait KeyTrait
     }
 
     /**
-     * @param string $key
-     * @param int $timestamp
-     *
-     * @return false
-     */
-    public function expireAt($key, $timestamp)
-    {
-        return false;
-    }
-
-    /**
      * @return array
      */
     public function getKeys()

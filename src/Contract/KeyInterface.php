@@ -27,17 +27,6 @@ interface KeyInterface
     public function expire($key, $seconds);
 
     /**
-     * @param string $key
-     * @param int $timestamp
-     *
-     * @return bool True if the timeout was set, false if the timeout could not be set.
-     *
-     * @throws \InvalidArgumentException
-     * @throws InternalException
-     */
-    public function expireAt($key, $timestamp);
-
-    /**
      * @return array
      *
      * @throws InternalException

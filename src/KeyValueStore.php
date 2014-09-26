@@ -12,10 +12,6 @@ class KeyValueStore implements AdapterInterface
         AdapterTrait::getAdapter insteadof KeyTrait;
         AdapterTrait::getAdapter insteadof StringTrait;
         AdapterTrait::getAdapter insteadof ServerTrait;
-        KeyTrait::checkString insteadof StringTrait;
-        KeyTrait::checkString insteadof ServerTrait;
-        KeyTrait::checkInteger insteadof StringTrait;
-        KeyTrait::checkInteger insteadof ServerTrait;
     }
 
     /**

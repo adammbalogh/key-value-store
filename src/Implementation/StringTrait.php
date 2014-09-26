@@ -1,11 +1,15 @@
 <?php namespace AdammBalogh\KeyValueStore\Implementation;
 
+use AdammBalogh\KeyValueStore\Adapter\Helper;
 use AdammBalogh\KeyValueStore\Exception\InternalException;
 use AdammBalogh\KeyValueStore\Exception\KeyNotFoundException;
 
+/**
+ * @SuppressWarnings(PHPMD.StaticAccess)
+ */
 trait StringTrait
 {
-    use AdapterTrait, ValidatorTrait;
+    use AdapterTrait;
 
     /**
      * @param string $key
@@ -19,8 +23,8 @@ trait StringTrait
      */
     public function append($key, $value)
     {
-        $this->checkString($key);
-        $this->checkString($value);
+        Helper::throwExIfNotString($key);
+        Helper::throwExIfNotString($value);
 
         try {
             return $this->getAdapter()->append($key, $value);
@@ -42,7 +46,7 @@ trait StringTrait
      */
     public function decrement($key)
     {
-        $this->checkString($key);
+        Helper::throwExIfNotString($key);
 
         try {
             return $this->getAdapter()->decrement($key);
@@ -65,8 +69,8 @@ trait StringTrait
      */
     public function decrementBy($key, $decrement)
     {
-        $this->checkString($key);
-        $this->checkInteger($decrement);
+        Helper::throwExIfNotString($key);
+        Helper::throwExIfNotInteger($decrement);
 
         try {
             return $this->getAdapter()->decrementBy($key, $decrement);
@@ -88,7 +92,7 @@ trait StringTrait
      */
     public function get($key)
     {
-        $this->checkString($key);
+        Helper::throwExIfNotString($key);
 
         try {
             return $this->getAdapter()->get($key);
@@ -110,7 +114,7 @@ trait StringTrait
      */
     public function getValueLength($key)
     {
-        $this->checkString($key);
+        Helper::throwExIfNotString($key);
 
         try {
             return $this->getAdapter()->getValueLength($key);
@@ -132,7 +136,7 @@ trait StringTrait
      */
     public function increment($key)
     {
-        $this->checkString($key);
+        Helper::throwExIfNotString($key);
 
         try {
             return $this->getAdapter()->increment($key);
@@ -155,8 +159,8 @@ trait StringTrait
      */
     public function incrementBy($key, $increment)
     {
-        $this->checkString($key);
-        $this->checkInteger($increment);
+        Helper::throwExIfNotString($key);
+        Helper::throwExIfNotInteger($increment);
 
         try {
             return $this->getAdapter()->incrementBy($key, $increment);
@@ -178,8 +182,8 @@ trait StringTrait
      */
     public function set($key, $value)
     {
-        $this->checkString($key);
-        $this->checkString($value);
+        Helper::throwExIfNotString($key);
+        Helper::throwExIfNotString($value);
 
         try {
             return $this->getAdapter()->set($key, $value);
@@ -199,8 +203,8 @@ trait StringTrait
      */
     public function setIfNotExists($key, $value)
     {
-        $this->checkString($key);
-        $this->checkString($value);
+        Helper::throwExIfNotString($key);
+        Helper::throwExIfNotString($value);
 
         try {
             return $this->getAdapter()->setIfNotExists($key, $value);

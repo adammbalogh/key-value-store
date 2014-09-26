@@ -29,17 +29,6 @@ trait KeyTrait
     }
 
     /**
-     * @param string $key
-     * @param int $timestamp
-     *
-     * @throws NotImplementedException
-     */
-    public function expireAt($key, $timestamp)
-    {
-        throw new NotImplementedException();
-    }
-
-    /**
      * @throws NotImplementedException
      */
     public function getKeys()

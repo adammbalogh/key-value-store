@@ -21,7 +21,7 @@ trait KeyTrait
      */
     public function delete($key)
     {
-        Helper::throwExIfNotString($key);
+        Helper::checkArgString($key);
 
         try {
             return $this->getAdapter()->delete($key);
@@ -41,8 +41,8 @@ trait KeyTrait
      */
     public function expire($key, $seconds)
     {
-        Helper::throwExIfNotString($key);
-        Helper::throwExIfNotInteger($seconds);
+        Helper::checkArgString($key);
+        Helper::checkArgInteger($seconds);
 
         try {
             return $this->getAdapter()->expire($key, $seconds);
@@ -78,7 +78,7 @@ trait KeyTrait
      */
     public function getTtl($key)
     {
-        Helper::throwExIfNotString($key);
+        Helper::checkArgString($key);
 
         try {
             return $this->getAdapter()->getTtl($key);
@@ -99,7 +99,7 @@ trait KeyTrait
      */
     public function has($key)
     {
-        Helper::throwExIfNotString($key);
+        Helper::checkArgString($key);
 
         try {
             return $this->getAdapter()->has($key);
@@ -121,7 +121,7 @@ trait KeyTrait
      */
     public function persist($key)
     {
-        Helper::throwExIfNotString($key);
+        Helper::checkArgString($key);
 
         try {
             return $this->getAdapter()->persist($key);

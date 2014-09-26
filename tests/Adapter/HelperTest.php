@@ -29,11 +29,11 @@ class HelperTest extends \PHPUnit_Framework_TestCase
      */
     public function testThrowExIfNotNumericInteger()
     {
-        Helper::throwExIfNotNumericInteger('2.3');
+        Helper::checkInteger('2.3');
     }
 
     public function testThrowExIfNotNumericIntegerCorrectly()
     {
-        Helper::throwExIfNotNumericInteger('2');
+        Helper::checkInteger('2');
     }
 }

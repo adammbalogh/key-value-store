@@ -38,7 +38,7 @@ class Helper
      *
      * @throws \Exception
      */
-    public static function throwExIfNotNumericInteger($param)
+    public static function checkInteger($param)
     {
         if (!is_numeric($param) || !is_integer($param + 0)) {
             throw new \Exception('The stored value is not an integer');
@@ -46,25 +46,25 @@ class Helper
     }
 
     /**
-     * @param mixed $param
+     * @param mixed $argument
      *
      * @throws \InvalidArgumentException
      */
-    public static function throwExIfNotString($param)
+    public static function checkArgString($argument)
     {
-        if (!is_string($param)) {
+        if (!is_string($argument)) {
             throw new \InvalidArgumentException();
         }
     }
 
     /**
-     * @param mixed $param
+     * @param mixed $argument
      *
      * @throws \InvalidArgumentException
      */
-    public static function throwExIfNotInteger($param)
+    public static function checkArgInteger($argument)
     {
-        if (!is_integer($param)) {
+        if (!is_integer($argument)) {
             throw new \InvalidArgumentException();
         }
     }

@@ -5,10 +5,9 @@ use AdammBalogh\KeyValueStore\Exception\InternalException;
 trait ServerTrait
 {
     /**
-     * @throws InternalException
+     * @return void
      */
     public function flush()
     {
-        throw new InternalException();
     }
 }

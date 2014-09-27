@@ -15,7 +15,9 @@ class NotImplementedAdapterServerTest extends \PHPUnit_Framework_TestCase
         $this->kvs = new KeyValueStore(new NotImplementedAdapter());
     }
 
-
+    /**
+     * @expectedException \AdammBalogh\KeyValueStore\Exception\InternalException
+     */
     public function testFlush()
     {
         $this->kvs->flush();

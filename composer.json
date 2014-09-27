@@ -29,6 +29,7 @@
     "minimum-stability": "stable",
     "suggest": {
         "adammbalogh/key-value-store-file": "For using File storage",
+        "adammbalogh/key-value-store-memcached": "For using Memcached storage",
         "adammbalogh/key-value-store-redis": "For using Redis storage"
     }
 }

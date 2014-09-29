@@ -45,13 +45,13 @@ $kvs->set('sample_key', 'Sample value');
 $kvs->get('sample_key');
 ```
 
-**To see other specific examples please visit the links in the Adapters section.**
+**To see other specific examples please visit the links in the [Adapters](https://github.com/adammbalogh/key-value-store#adapters) section.**
 
 # Installation
 
 This is an abstract package not a speficic implementation.
 
-**Please visit the links in the Adapters section.**
+**Please visit the links in the [Adapters](https://github.com/adammbalogh/key-value-store#adapters) section.**
 
 # API
 

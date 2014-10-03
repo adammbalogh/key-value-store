@@ -1,4 +1,5 @@
 #Key-Value Store
+[![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/adammbalogh/key-value-store?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 [![Author](http://img.shields.io/badge/author-@adammbalogh-blue.svg?style=flat)](https://twitter.com/adammbalogh)
 [![Build Status](https://img.shields.io/travis/adammbalogh/key-value-store/master.svg?style=flat)](https://travis-ci.org/adammbalogh/key-value-store)

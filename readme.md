@@ -25,6 +25,12 @@ This library provides an abstraction layer for key value stores. It is literally
 * **Redis**
  * [key-value-store-redis](https://github.com/adammbalogh/key-value-store-redis)
 
+# Installation
+
+This is an abstract package not a specific store implementation.
+
+**Please visit the links in the [Adapters](https://github.com/adammbalogh/key-value-store#adapters) section.**
+
 # Usage
 
 *with Redis (through predis/predis)*
@@ -46,12 +52,6 @@ $kvs->get('sample_key');
 ```
 
 **To see other specific examples please visit the links in the [Adapters](https://github.com/adammbalogh/key-value-store#adapters) section.**
-
-# Installation
-
-This is an abstract package not a specific implementation.
-
-**Please visit the links in the [Adapters](https://github.com/adammbalogh/key-value-store#adapters) section.**
 
 # API
 

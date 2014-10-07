@@ -18,6 +18,8 @@ This library provides an abstraction layer for key value stores. It is literally
 
 # Adapters
 
+**These are separate packages!**
+
 * **File**
  * [key-value-store-file](https://github.com/adammbalogh/key-value-store-file)
 * **Memcached**

@@ -49,7 +49,7 @@ $kvs->get('sample_key');
 
 # Installation
 
-This is an abstract package not a speficic implementation.
+This is an abstract package not a specific implementation.
 
 **Please visit the links in the [Adapters](https://github.com/adammbalogh/key-value-store#adapters) section.**
 

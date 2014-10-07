@@ -1,4 +1,4 @@
-#Key-Value Store
+#Key Value Store
 
 [![Author](http://img.shields.io/badge/author-@adammbalogh-blue.svg?style=flat)](https://twitter.com/adammbalogh)
 [![Build Status](https://img.shields.io/travis/adammbalogh/key-value-store/master.svg?style=flat)](https://travis-ci.org/adammbalogh/key-value-store)
@@ -14,17 +14,16 @@
 
 # Description
 
-This library provides an abstraction layer for key values stores. It is literally an abstraction because it contains only contracts and fundemantal implementations. So you need to install a store specific implementation a.k.a. an adapter.
-
-# Support
-
-[![Support with Gittip](http://img.shields.io/gittip/adammbalogh.svg?style=flat)](https://www.gittip.com/adammbalogh/)
+This library provides an abstraction layer for key value stores. It is literally an abstraction because it contains only contracts and fundemantal implementations. So you need to install a store specific implementation a.k.a. an adapter.
 
 # Adapters
 
-* **File** [key-value-store-file](https://github.com/adammbalogh/key-value-store-file)
-* **Memcached** [key-value-store-memcached](https://github.com/adammbalogh/key-value-store-memcached)
-* **Redis** [key-value-store-redis](https://github.com/adammbalogh/key-value-store-redis)
+* **File**
+ * [key-value-store-file](https://github.com/adammbalogh/key-value-store-file)
+* **Memcached**
+ * [key-value-store-memcached](https://github.com/adammbalogh/key-value-store-memcached)
+* **Redis**
+ * [key-value-store-redis](https://github.com/adammbalogh/key-value-store-redis)
 
 # Usage
 
@@ -240,3 +239,7 @@ public function setIfNotExists($key, $value);
  */
 public function flush();
 ```
+
+# Support
+
+[![Support with Gittip](http://img.shields.io/gittip/adammbalogh.svg?style=flat)](https://www.gittip.com/adammbalogh/)

@@ -27,7 +27,7 @@ This library provides an abstraction layer for key value stores. It is literally
 * **Redis**
  * [key-value-store-redis](https://github.com/adammbalogh/key-value-store-redis)
 * **Null**
- * This is an exception, it lives in this abstract package.
+ * This is a fundamental implementation, so it lives in this abstract package.
 
 # Installation
 

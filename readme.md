@@ -26,6 +26,8 @@ This library provides an abstraction layer for key value stores. It is literally
  * [key-value-store-memcached](https://github.com/adammbalogh/key-value-store-memcached)
 * **Redis**
  * [key-value-store-redis](https://github.com/adammbalogh/key-value-store-redis)
+* **Null**
+ * This is an exception, it lives in this abstract package.
 
 # Installation
 
@@ -54,6 +56,23 @@ $kvs->get('sample_key');
 ```
 
 **To see other specific examples please visit the links in the [Adapters](https://github.com/adammbalogh/key-value-store#adapters) section.**
+
+## Null Adapter usage
+
+This is the one and only adapter which lives in this key-value-store abstract package. So, you don't have to install another individual adapter package.
+
+```php
+<?php
+use AdammBalogh\KeyValueStore\KeyValueStore;
+use AdammBalogh\KeyValueStore\Adapter\NullAdapter as Adapter;
+
+$adapter = new Adapter();
+
+$kvs = new KeyValueStore($adapter);
+
+$kvs->set('sample_key', 'Sample value');
+$kvs->get('sample_key');
+```
 
 # API
 

@@ -27,7 +27,14 @@ This library provides an abstraction layer for key value stores. It is literally
 * **Redis**
  * [key-value-store-redis](https://github.com/adammbalogh/key-value-store-redis)
 * **Null**
- * This is a fundamental implementation, so it lives in this abstract package.
+ * It lives in this abstract package. (Will be refactored to a separate package)
+
+### Planned adapters
+
+* Memory (array caching)
+* Shared memory
+* Apc
+* Couchbase
 
 # Installation
 

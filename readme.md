@@ -20,11 +20,11 @@ This library provides an abstraction layer for key value stores. It is literally
 
 **These are separate packages!**
 
-* **File** *through [fire015/flintstone](https://github.com/fire015/flintstone)*
+* **File**
  * **package:** [key-value-store-file](https://github.com/adammbalogh/key-value-store-file)
-* **Memcached** *through [memcached extension](http://hu1.php.net/manual/en/book.memcached.php)*
+* **Memcached**
  * **package:** [key-value-store-memcached](https://github.com/adammbalogh/key-value-store-memcached)
-* **Redis** *through [predis/predis](https://github.com/nrk/predis)*
+* **Redis**
  * **package:** [key-value-store-redis](https://github.com/adammbalogh/key-value-store-redis)
 * **Null**
  * It lives in this abstract package. (Will be refactored to a separate package)

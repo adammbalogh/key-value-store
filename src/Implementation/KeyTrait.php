@@ -1,6 +1,6 @@
 <?php namespace AdammBalogh\KeyValueStore\Implementation;
 
-use AdammBalogh\KeyValueStore\Adapter\Helper;
+use AdammBalogh\KeyValueStore\Adapter\Util;
 use AdammBalogh\KeyValueStore\Exception\InternalException;
 use AdammBalogh\KeyValueStore\Exception\KeyNotFoundException;
 
@@ -21,7 +21,7 @@ trait KeyTrait
      */
     public function delete($key)
     {
-        Helper::checkArgString($key);
+        Util::checkArgString($key);
 
         try {
             return $this->getAdapter()->delete($key);
@@ -41,8 +41,8 @@ trait KeyTrait
      */
     public function expire($key, $seconds)
     {
-        Helper::checkArgString($key);
-        Helper::checkArgInteger($seconds);
+        Util::checkArgString($key);
+        Util::checkArgInteger($seconds);
 
         try {
             return $this->getAdapter()->expire($key, $seconds);
@@ -78,7 +78,7 @@ trait KeyTrait
      */
     public function getTtl($key)
     {
-        Helper::checkArgString($key);
+        Util::checkArgString($key);
 
         try {
             return $this->getAdapter()->getTtl($key);
@@ -99,7 +99,7 @@ trait KeyTrait
      */
     public function has($key)
     {
-        Helper::checkArgString($key);
+        Util::checkArgString($key);
 
         try {
             return $this->getAdapter()->has($key);
@@ -121,7 +121,7 @@ trait KeyTrait
      */
     public function persist($key)
     {
-        Helper::checkArgString($key);
+        Util::checkArgString($key);
 
         try {
             return $this->getAdapter()->persist($key);

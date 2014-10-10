@@ -27,18 +27,18 @@ This library provides an abstraction layer for key value stores. It is literally
 * **Redis**
  * **package:** [key-value-store-redis](https://github.com/adammbalogh/key-value-store-redis)
 * **Null**
- * It lives in this abstract package. (Will be refactored to a separate package)
+ * **package:** [key-value-store-null](https://github.com/adammbalogh/key-value-store-null)
 
 ### Planned adapters
 
-* Memory (array caching)
+* Memory (array)
 * Shared memory
 * Apc
 * Couchbase
 
 # Installation
 
-This is an abstract package not a specific store implementation.
+This is an abstract package not a store specific implementation.
 
 **Please visit the links in the [Adapters](https://github.com/adammbalogh/key-value-store#adapters) section.**
 
@@ -63,23 +63,6 @@ $kvs->get('sample_key');
 ```
 
 **To see other specific examples please visit the links in the [Adapters](https://github.com/adammbalogh/key-value-store#adapters) section.**
-
-## Null Adapter usage
-
-This is the one and only adapter which lives in this key-value-store abstract package. So, you don't have to install another individual adapter package.
-
-```php
-<?php
-use AdammBalogh\KeyValueStore\KeyValueStore;
-use AdammBalogh\KeyValueStore\Adapter\NullAdapter as Adapter;
-
-$adapter = new Adapter();
-
-$kvs = new KeyValueStore($adapter);
-
-$kvs->set('sample_key', 'Sample value');
-$kvs->get('sample_key');
-```
 
 # API
 
@@ -148,7 +131,7 @@ public function has($key);
  * @throws \InvalidArgumentException
  * @throws InternalException
  */
-    public function persist($key);
+public function persist($key);
 ```
 
 ## String

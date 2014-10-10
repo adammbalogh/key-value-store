@@ -1,6 +1,6 @@
 <?php namespace AdammBalogh\KeyValueStore\Implementation;
 
-use AdammBalogh\KeyValueStore\Adapter\Helper;
+use AdammBalogh\KeyValueStore\Adapter\Util;
 use AdammBalogh\KeyValueStore\Exception\InternalException;
 use AdammBalogh\KeyValueStore\Exception\KeyNotFoundException;
 
@@ -23,8 +23,8 @@ trait StringTrait
      */
     public function append($key, $value)
     {
-        Helper::checkArgString($key);
-        Helper::checkArgString($value);
+        Util::checkArgString($key);
+        Util::checkArgString($value);
 
         try {
             return $this->getAdapter()->append($key, $value);
@@ -46,7 +46,7 @@ trait StringTrait
      */
     public function decrement($key)
     {
-        Helper::checkArgString($key);
+        Util::checkArgString($key);
 
         try {
             return $this->getAdapter()->decrement($key);
@@ -69,8 +69,8 @@ trait StringTrait
      */
     public function decrementBy($key, $decrement)
     {
-        Helper::checkArgString($key);
-        Helper::checkArgInteger($decrement);
+        Util::checkArgString($key);
+        Util::checkArgInteger($decrement);
 
         try {
             return $this->getAdapter()->decrementBy($key, $decrement);
@@ -92,7 +92,7 @@ trait StringTrait
      */
     public function get($key)
     {
-        Helper::checkArgString($key);
+        Util::checkArgString($key);
 
         try {
             return $this->getAdapter()->get($key);
@@ -114,7 +114,7 @@ trait StringTrait
      */
     public function getValueLength($key)
     {
-        Helper::checkArgString($key);
+        Util::checkArgString($key);
 
         try {
             return $this->getAdapter()->getValueLength($key);
@@ -136,7 +136,7 @@ trait StringTrait
      */
     public function increment($key)
     {
-        Helper::checkArgString($key);
+        Util::checkArgString($key);
 
         try {
             return $this->getAdapter()->increment($key);
@@ -159,8 +159,8 @@ trait StringTrait
      */
     public function incrementBy($key, $increment)
     {
-        Helper::checkArgString($key);
-        Helper::checkArgInteger($increment);
+        Util::checkArgString($key);
+        Util::checkArgInteger($increment);
 
         try {
             return $this->getAdapter()->incrementBy($key, $increment);
@@ -182,8 +182,8 @@ trait StringTrait
      */
     public function set($key, $value)
     {
-        Helper::checkArgString($key);
-        Helper::checkArgString($value);
+        Util::checkArgString($key);
+        Util::checkArgString($value);
 
         try {
             return $this->getAdapter()->set($key, $value);
@@ -203,8 +203,8 @@ trait StringTrait
      */
     public function setIfNotExists($key, $value)
     {
-        Helper::checkArgString($key);
-        Helper::checkArgString($value);
+        Util::checkArgString($key);
+        Util::checkArgString($value);
 
         try {
             return $this->getAdapter()->setIfNotExists($key, $value);

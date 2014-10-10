@@ -1,6 +1,6 @@
 <?php namespace AdammBalogh\KeyValueStore\Adapter;
 
-class Helper
+class Util
 {
     /**
      * @param string $value

@@ -1,16 +1,18 @@
 <?php namespace AdammBalogh\KeyValueStore\Implementation;
 
 use AdammBalogh\KeyValueStore\AbstractKvsTestCase;
+use AdammBalogh\KeyValueStore\KeyValueStore;
+use Mockery\MockInterface;
 
 class ServerTraitTest extends AbstractKvsTestCase
 {
     /**
      * @dataProvider kvsProvider
      *
-     * @param \AdammBalogh\KeyValueStore\KeyValueStore $kvs
-     * @param \Mockery\MockInterface $dummyAdapter
+     * @param KeyValueStore $kvs
+     * @param MockInterface $dummyAdapter
      */
-    public function testFlush($kvs, $dummyAdapter)
+    public function testFlush(KeyValueStore $kvs, MockInterface $dummyAdapter)
     {
         $dummyAdapter->shouldReceive('flush');
 
@@ -22,14 +24,13 @@ class ServerTraitTest extends AbstractKvsTestCase
      *
      * @dataProvider kvsProvider
      *
-     * @param \AdammBalogh\KeyValueStore\KeyValueStore $kvs
-     * @param \Mockery\MockInterface $dummyAdapter
+     * @param KeyValueStore $kvs
+     * @param MockInterface $dummyAdapter
      */
-    public function testFlushException($kvs, $dummyAdapter)
+    public function testFlushException(KeyValueStore $kvs, MockInterface $dummyAdapter)
     {
         $dummyAdapter->shouldReceive('flush')->andThrow('\Exception');
 
         $kvs->flush();
     }
-
 }

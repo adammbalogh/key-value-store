@@ -1,16 +1,18 @@
 <?php namespace AdammBalogh\KeyValueStore\Implementation;
 
 use AdammBalogh\KeyValueStore\AbstractKvsTestCase;
+use AdammBalogh\KeyValueStore\KeyValueStore;
+use Mockery\MockInterface;
 
 class KeyTraitTest extends AbstractKvsTestCase
 {
     /**
      * @dataProvider kvsProvider
      *
-     * @param \AdammBalogh\KeyValueStore\KeyValueStore $kvs
-     * @param \Mockery\MockInterface $dummyAdapter
+     * @param KeyValueStore $kvs
+     * @param MockInterface $dummyAdapter
      */
-    public function testDelete($kvs, $dummyAdapter)
+    public function testDelete(KeyValueStore $kvs, MockInterface $dummyAdapter)
     {
         $dummyAdapter->shouldReceive('delete')->with('key-e')->andReturn(true);
         $dummyAdapter->shouldReceive('delete')->with('key-ne')->andReturn(false);
@@ -24,11 +26,11 @@ class KeyTraitTest extends AbstractKvsTestCase
      *
      * @dataProvider kvsAndNotStringArgProvider
      *
-     * @param \AdammBalogh\KeyValueStore\KeyValueStore $kvs
-     * @param \Mockery\MockInterface $dummyAdapter
+     * @param KeyValueStore $kvs
+     * @param MockInterface $dummyAdapter
      * @param mixed $key
      */
-    public function testDeleteWithWrongKeyArg($kvs, $dummyAdapter, $key)
+    public function testDeleteWithWrongKeyArg(KeyValueStore $kvs, MockInterface $dummyAdapter, $key)
     {
         $dummyAdapter->shouldReceive('delete')->andReturn(false);
 
@@ -40,10 +42,10 @@ class KeyTraitTest extends AbstractKvsTestCase
      *
      * @dataProvider kvsProvider
      *
-     * @param \AdammBalogh\KeyValueStore\KeyValueStore $kvs
-     * @param \Mockery\MockInterface $dummyAdapter
+     * @param KeyValueStore $kvs
+     * @param MockInterface $dummyAdapter
      */
-    public function testDeleteException($kvs, $dummyAdapter)
+    public function testDeleteException(KeyValueStore $kvs, MockInterface $dummyAdapter)
     {
         $dummyAdapter->shouldReceive('delete')->andThrow('\Exception');
 
@@ -53,10 +55,10 @@ class KeyTraitTest extends AbstractKvsTestCase
     /**
      * @dataProvider kvsProvider
      *
-     * @param \AdammBalogh\KeyValueStore\KeyValueStore $kvs
-     * @param \Mockery\MockInterface $dummyAdapter
+     * @param KeyValueStore $kvs
+     * @param MockInterface $dummyAdapter
      */
-    public function testExpire($kvs, $dummyAdapter)
+    public function testExpire(KeyValueStore $kvs, MockInterface $dummyAdapter)
     {
         $dummyAdapter->shouldReceive('expire')->with('key-e', 1)->andReturn(true);
         $dummyAdapter->shouldReceive('expire')->with('key-ne', 1)->andReturn(false);
@@ -70,11 +72,11 @@ class KeyTraitTest extends AbstractKvsTestCase
      *
      * @dataProvider kvsAndNotStringArgProvider
      *
-     * @param \AdammBalogh\KeyValueStore\KeyValueStore $kvs
-     * @param \Mockery\MockInterface $dummyAdapter
+     * @param KeyValueStore $kvs
+     * @param MockInterface $dummyAdapter
      * @param mixed $key
      */
-    public function testExpireWithWrongKeyArg($kvs, $dummyAdapter, $key)
+    public function testExpireWithWrongKeyArg(KeyValueStore $kvs, MockInterface $dummyAdapter, $key)
     {
         $dummyAdapter->shouldReceive('expire')->andReturn(false);
 
@@ -86,11 +88,11 @@ class KeyTraitTest extends AbstractKvsTestCase
      *
      * @dataProvider kvsAndNotIntegerArgProvider
      *
-     * @param \AdammBalogh\KeyValueStore\KeyValueStore $kvs
-     * @param \Mockery\MockInterface $dummyAdapter
+     * @param KeyValueStore $kvs
+     * @param MockInterface $dummyAdapter
      * @param mixed $seconds
      */
-    public function testExpireWithWrongSecondsArg($kvs, $dummyAdapter, $seconds)
+    public function testExpireWithWrongSecondsArg(KeyValueStore $kvs, MockInterface $dummyAdapter, $seconds)
     {
         $dummyAdapter->shouldReceive('expire')->andReturn(false);
 
@@ -102,10 +104,10 @@ class KeyTraitTest extends AbstractKvsTestCase
      *
      * @dataProvider kvsProvider
      *
-     * @param \AdammBalogh\KeyValueStore\KeyValueStore $kvs
-     * @param \Mockery\MockInterface $dummyAdapter
+     * @param KeyValueStore $kvs
+     * @param MockInterface $dummyAdapter
      */
-    public function testExpireException($kvs, $dummyAdapter)
+    public function testExpireException(KeyValueStore $kvs, MockInterface $dummyAdapter)
     {
         $dummyAdapter->shouldReceive('expire', 1)->andThrow('\Exception');
 
@@ -115,10 +117,10 @@ class KeyTraitTest extends AbstractKvsTestCase
     /**
      * @dataProvider kvsProvider
      *
-     * @param \AdammBalogh\KeyValueStore\KeyValueStore $kvs
-     * @param \Mockery\MockInterface $dummyAdapter
+     * @param KeyValueStore $kvs
+     * @param MockInterface $dummyAdapter
      */
-    public function testGetKeys($kvs, $dummyAdapter)
+    public function testGetKeys(KeyValueStore $kvs, MockInterface $dummyAdapter)
     {
         $dummyAdapter->shouldReceive('getKeys')->andReturn([
             'key1',
@@ -134,10 +136,10 @@ class KeyTraitTest extends AbstractKvsTestCase
      *
      * @dataProvider kvsProvider
      *
-     * @param \AdammBalogh\KeyValueStore\KeyValueStore $kvs
-     * @param \Mockery\MockInterface $dummyAdapter
+     * @param KeyValueStore $kvs
+     * @param MockInterface $dummyAdapter
      */
-    public function testGetKeysException($kvs, $dummyAdapter)
+    public function testGetKeysException(KeyValueStore $kvs, MockInterface $dummyAdapter)
     {
         $dummyAdapter->shouldReceive('getKeys')->andThrow('\Exception');
 
@@ -147,10 +149,10 @@ class KeyTraitTest extends AbstractKvsTestCase
     /**
      * @dataProvider kvsProvider
      *
-     * @param \AdammBalogh\KeyValueStore\KeyValueStore $kvs
-     * @param \Mockery\MockInterface $dummyAdapter
+     * @param KeyValueStore $kvs
+     * @param MockInterface $dummyAdapter
      */
-    public function testGetTtl($kvs, $dummyAdapter)
+    public function testGetTtl(KeyValueStore $kvs, MockInterface $dummyAdapter)
     {
         $dummyAdapter->shouldReceive('getTtl')->with('key-e')->andReturn(5);
 
@@ -162,10 +164,10 @@ class KeyTraitTest extends AbstractKvsTestCase
      *
      * @dataProvider kvsProvider
      *
-     * @param \AdammBalogh\KeyValueStore\KeyValueStore $kvs
-     * @param \Mockery\MockInterface $dummyAdapter
+     * @param KeyValueStore $kvs
+     * @param MockInterface $dummyAdapter
      */
-    public function testGetTtlKeyNotFound($kvs, $dummyAdapter)
+    public function testGetTtlKeyNotFound(KeyValueStore $kvs, MockInterface $dummyAdapter)
     {
         $dummyAdapter
             ->shouldReceive('getTtl')
@@ -180,11 +182,11 @@ class KeyTraitTest extends AbstractKvsTestCase
      *
      * @dataProvider kvsAndNotStringArgProvider
      *
-     * @param \AdammBalogh\KeyValueStore\KeyValueStore $kvs
-     * @param \Mockery\MockInterface $dummyAdapter
+     * @param KeyValueStore $kvs
+     * @param MockInterface $dummyAdapter
      * @param mixed $key
      */
-    public function testGetTtlWithWrongKeyArg($kvs, $dummyAdapter, $key)
+    public function testGetTtlWithWrongKeyArg(KeyValueStore $kvs, MockInterface $dummyAdapter, $key)
     {
         $dummyAdapter->shouldReceive('getTtl')->andReturn(5);
 
@@ -196,10 +198,10 @@ class KeyTraitTest extends AbstractKvsTestCase
      *
      * @dataProvider kvsProvider
      *
-     * @param \AdammBalogh\KeyValueStore\KeyValueStore $kvs
-     * @param \Mockery\MockInterface $dummyAdapter
+     * @param KeyValueStore $kvs
+     * @param MockInterface $dummyAdapter
      */
-    public function testGetTtlException($kvs, $dummyAdapter)
+    public function testGetTtlException(KeyValueStore $kvs, MockInterface $dummyAdapter)
     {
         $dummyAdapter->shouldReceive('getTtl')->andThrow('\Exception');
 
@@ -209,10 +211,10 @@ class KeyTraitTest extends AbstractKvsTestCase
     /**
      * @dataProvider kvsProvider
      *
-     * @param \AdammBalogh\KeyValueStore\KeyValueStore $kvs
-     * @param \Mockery\MockInterface $dummyAdapter
+     * @param KeyValueStore $kvs
+     * @param MockInterface $dummyAdapter
      */
-    public function testHas($kvs, $dummyAdapter)
+    public function testHas(KeyValueStore $kvs, MockInterface $dummyAdapter)
     {
         $dummyAdapter->shouldReceive('has')->with('key-e')->andReturn(true);
         $dummyAdapter->shouldReceive('has')->with('key-ne')->andReturn(false);
@@ -226,11 +228,11 @@ class KeyTraitTest extends AbstractKvsTestCase
      *
      * @dataProvider kvsAndNotStringArgProvider
      *
-     * @param \AdammBalogh\KeyValueStore\KeyValueStore $kvs
-     * @param \Mockery\MockInterface $dummyAdapter
+     * @param KeyValueStore $kvs
+     * @param MockInterface $dummyAdapter
      * @param mixed $key
      */
-    public function testHasWithWrongKeyArg($kvs, $dummyAdapter, $key)
+    public function testHasWithWrongKeyArg(KeyValueStore $kvs, MockInterface $dummyAdapter, $key)
     {
         $dummyAdapter->shouldReceive('has')->andReturn(false);
 
@@ -242,10 +244,10 @@ class KeyTraitTest extends AbstractKvsTestCase
      *
      * @dataProvider kvsProvider
      *
-     * @param \AdammBalogh\KeyValueStore\KeyValueStore $kvs
-     * @param \Mockery\MockInterface $dummyAdapter
+     * @param KeyValueStore $kvs
+     * @param MockInterface $dummyAdapter
      */
-    public function testHasException($kvs, $dummyAdapter)
+    public function testHasException(KeyValueStore $kvs, MockInterface $dummyAdapter)
     {
         $dummyAdapter->shouldReceive('has')->andThrow('\Exception');
 
@@ -255,10 +257,10 @@ class KeyTraitTest extends AbstractKvsTestCase
     /**
      * @dataProvider kvsProvider
      *
-     * @param \AdammBalogh\KeyValueStore\KeyValueStore $kvs
-     * @param \Mockery\MockInterface $dummyAdapter
+     * @param KeyValueStore $kvs
+     * @param MockInterface $dummyAdapter
      */
-    public function testPersist($kvs, $dummyAdapter)
+    public function testPersist(KeyValueStore $kvs, MockInterface $dummyAdapter)
     {
         $dummyAdapter->shouldReceive('persist')->with('key-e')->andReturn(true);
         $dummyAdapter->shouldReceive('persist')->with('key-ne')->andReturn(false);
@@ -272,11 +274,11 @@ class KeyTraitTest extends AbstractKvsTestCase
      *
      * @dataProvider kvsAndNotStringArgProvider
      *
-     * @param \AdammBalogh\KeyValueStore\KeyValueStore $kvs
-     * @param \Mockery\MockInterface $dummyAdapter
+     * @param KeyValueStore $kvs
+     * @param MockInterface $dummyAdapter
      * @param mixed $key
      */
-    public function testPersistWithWrongKeyArg($kvs, $dummyAdapter, $key)
+    public function testPersistWithWrongKeyArg(KeyValueStore $kvs, MockInterface $dummyAdapter, $key)
     {
         $dummyAdapter->shouldReceive('persist')->andReturn(false);
 
@@ -288,10 +290,10 @@ class KeyTraitTest extends AbstractKvsTestCase
      *
      * @dataProvider kvsProvider
      *
-     * @param \AdammBalogh\KeyValueStore\KeyValueStore $kvs
-     * @param \Mockery\MockInterface $dummyAdapter
+     * @param KeyValueStore $kvs
+     * @param MockInterface $dummyAdapter
      */
-    public function testPersistException($kvs, $dummyAdapter)
+    public function testPersistException(KeyValueStore $kvs, MockInterface $dummyAdapter)
     {
         $dummyAdapter->shouldReceive('persist')->andThrow('\Exception');
 

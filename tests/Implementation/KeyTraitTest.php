@@ -120,38 +120,6 @@ class KeyTraitTest extends AbstractKvsTestCase
      * @param KeyValueStore $kvs
      * @param MockInterface $dummyAdapter
      */
-    public function testGetKeys(KeyValueStore $kvs, MockInterface $dummyAdapter)
-    {
-        $dummyAdapter->shouldReceive('getKeys')->andReturn([
-            'key1',
-            'key2',
-            'key3'
-        ]);
-
-        $this->assertCount(3, $kvs->getKeys());
-    }
-
-    /**
-     * @expectedException \AdammBalogh\KeyValueStore\Exception\InternalException
-     *
-     * @dataProvider kvsProvider
-     *
-     * @param KeyValueStore $kvs
-     * @param MockInterface $dummyAdapter
-     */
-    public function testGetKeysException(KeyValueStore $kvs, MockInterface $dummyAdapter)
-    {
-        $dummyAdapter->shouldReceive('getKeys')->andThrow('\Exception');
-
-        $kvs->getKeys();
-    }
-
-    /**
-     * @dataProvider kvsProvider
-     *
-     * @param KeyValueStore $kvs
-     * @param MockInterface $dummyAdapter
-     */
     public function testGetTtl(KeyValueStore $kvs, MockInterface $dummyAdapter)
     {
         $dummyAdapter->shouldReceive('getTtl')->with('key-e')->andReturn(5);

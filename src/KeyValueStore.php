@@ -3,14 +3,14 @@
 use AdammBalogh\KeyValueStore\Contract\AdapterInterface;
 use AdammBalogh\KeyValueStore\Implementation\AdapterTrait;
 use AdammBalogh\KeyValueStore\Implementation\KeyTrait;
+use AdammBalogh\KeyValueStore\Implementation\ValueTrait;
 use AdammBalogh\KeyValueStore\Implementation\ServerTrait;
-use AdammBalogh\KeyValueStore\Implementation\StringTrait;
 
 class KeyValueStore implements AdapterInterface
 {
-    use AdapterTrait, KeyTrait, StringTrait, ServerTrait {
+    use AdapterTrait, KeyTrait, ValueTrait, ServerTrait {
         AdapterTrait::getAdapter insteadof KeyTrait;
-        AdapterTrait::getAdapter insteadof StringTrait;
+        AdapterTrait::getAdapter insteadof ValueTrait;
         AdapterTrait::getAdapter insteadof ServerTrait;
     }
 

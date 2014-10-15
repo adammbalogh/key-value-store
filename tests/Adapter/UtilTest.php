@@ -62,4 +62,17 @@ class UtilTest extends \PHPUnit_Framework_TestCase
     {
         Util::checkArgInteger('1');
     }
+
+    public function testCheckArgSerializable()
+    {
+        Util::checkArgSerializable(1);
+    }
+
+    /**
+     * @expectedException \InvalidArgumentException
+     */
+    public function testCheckArgSerializableWithNotSerializable()
+    {
+        Util::checkArgSerializable(tmpfile());
+    }
 }

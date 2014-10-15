@@ -68,4 +68,16 @@ class Util
             throw new \InvalidArgumentException();
         }
     }
+
+    /**
+     * @param mixed $argument
+     *
+     * @throws \InvalidArgumentException
+     */
+    public static function checkArgSerializable($argument)
+    {
+        if (is_resource($argument)) {
+            throw new \InvalidArgumentException();
+        }
+    }
 }

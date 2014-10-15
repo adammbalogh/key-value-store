@@ -7,9 +7,11 @@ trait ServerTrait
     use AdapterTrait;
 
     /**
+     * Removes all keys.
+     *
      * @return void
      *
-     * @throws InternalException
+     * @throws \AdammBalogh\KeyValueStore\Exception\InternalException
      */
     public function flush()
     {

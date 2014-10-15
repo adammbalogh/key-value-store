@@ -12,6 +12,8 @@ trait KeyTrait
     use AdapterTrait;
 
     /**
+     * Removes a key.
+     *
      * @param string $key
      *
      * @return bool True if the deletion was successful, false if the deletion was unsuccessful.
@@ -31,6 +33,8 @@ trait KeyTrait
     }
 
     /**
+     * Sets a key's time to live in seconds.
+     *
      * @param string $key
      * @param int $seconds
      *
@@ -52,25 +56,11 @@ trait KeyTrait
     }
 
     /**
-     * @return array
-     *
-     * @throws InternalException
-     */
-    public function getKeys()
-    {
-        try {
-            return $this->getAdapter()->getKeys();
-        } catch (\Exception $e) {
-            throw new InternalException($e->getMessage(), $e->getCode(), $e);
-        }
-    }
-
-    /**
      * Returns the remaining time to live of a key that has a timeout.
      *
      * @param string $key
      *
-     * @return int Ttl in seconds
+     * @return int Ttl in seconds.
      *
      * @throws \InvalidArgumentException
      * @throws KeyNotFoundException
@@ -90,6 +80,8 @@ trait KeyTrait
     }
 
     /**
+     * Determines if a key exists.
+     *
      * @param string $key
      *
      * @return bool True if the key does exist, false if the key does not exist.
@@ -109,7 +101,7 @@ trait KeyTrait
     }
 
     /**
-     * Remove the existing timeout on key, turning the key from volatile (a key with an expire set)
+     * Removes the existing timeout on key, turning the key from volatile (a key with an expire set)
      * to persistent (a key that will never expire as no timeout is associated).
      *
      * @param string $key

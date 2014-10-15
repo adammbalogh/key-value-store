@@ -60,16 +60,21 @@ $kvs = new KeyValueStore($adapter);
 
 $kvs->set('sample_key', 'Sample value');
 $kvs->get('sample_key');
+$kvs->delete('sample_key');
 ```
 
 **To see other specific examples please visit the links in the [Adapters](https://github.com/adammbalogh/key-value-store#adapters) section.**
 
 # API
 
+You can call all of the API methods on a instance of ```KeyValueStore```.
+
 ## Key
 
 ```php
 /**
+ * Removes a key.
+ *
  * @param string $key
  *
  * @return bool True if the deletion was successful, false if the deletion was unsuccessful.
@@ -80,6 +85,8 @@ $kvs->get('sample_key');
 public function delete($key);
 
 /**
+ * Sets a key's time to live in seconds.
+ *
  * @param string $key
  * @param int $seconds
  *
@@ -91,18 +98,11 @@ public function delete($key);
 public function expire($key, $seconds);
 
 /**
- * @return array
- *
- * @throws InternalException
- */
-public function getKeys();
-
-/**
  * Returns the remaining time to live of a key that has a timeout.
  *
  * @param string $key
  *
- * @return int Ttl in seconds
+ * @return int Ttl in seconds.
  *
  * @throws \InvalidArgumentException
  * @throws KeyNotFoundException
@@ -111,6 +111,8 @@ public function getKeys();
 public function getTtl($key);
 
 /**
+ * Determines if a key exists.
+ *
  * @param string $key
  *
  * @return bool True if the key does exist, false if the key does not exist.
@@ -121,7 +123,7 @@ public function getTtl($key);
 public function has($key);
 
 /**
- * Remove the existing timeout on key, turning the key from volatile (a key with an expire set)
+ * Removes the existing timeout on key, turning the key from volatile (a key with an expire set)
  * to persistent (a key that will never expire as no timeout is associated).
  *
  * @param string $key
@@ -134,48 +136,15 @@ public function has($key);
 public function persist($key);
 ```
 
-## String
+## Value
 
 ```php
 /**
- * @param string $key
- * @param string $value
+ * Gets the value of a key.
  *
- * @return int The length of the string after the append operation.
- *
- * @throws \InvalidArgumentException
- * @throws KeyNotFoundException
- * @throws InternalException
- */
-public function append($key, $value);
-
-/**
  * @param string $key
  *
- * @return int The value of key after the decrement
- *
- * @throws \InvalidArgumentException
- * @throws KeyNotFoundException
- * @throws InternalException
- */
-public function decrement($key);
-
-/**
- * @param string $key
- * @param int $decrement
- *
- * @return int The value of key after the decrement
- *
- * @throws \InvalidArgumentException
- * @throws KeyNotFoundException
- * @throws InternalException
- */
-public function decrementBy($key, $decrement);
-
-/**
- * @param string $key
- *
- * @return string The value of the key
+ * @return mixed The value of the key.
  *
  * @throws \InvalidArgumentException
  * @throws KeyNotFoundException
@@ -184,66 +153,25 @@ public function decrementBy($key, $decrement);
 public function get($key);
 
 /**
+ * Sets the value of a key.
+ *
  * @param string $key
+ * @param mixed $value Can be any of serializable data type.
  *
- * @return int
- *
- * @throws \InvalidArgumentException
- * @throws KeyNotFoundException
- * @throws InternalException
- */
-public function getValueLength($key);
-
-/**
- * @param string $key
- *
- * @return int The value of key after the increment
- *
- * @throws \InvalidArgumentException
- * @throws KeyNotFoundException
- * @throws InternalException
- */
-public function increment($key);
-
-/**
- * @param string $key
- * @param int $increment
- *
- * @return int The value of key after the increment
- *
- * @throws \InvalidArgumentException
- * @throws KeyNotFoundException
- * @throws InternalException
- */
-public function incrementBy($key, $increment);
-
-/**
- * @param string $key
- * @param string $value
- *
- * @return bool True if the set was successful, false if it was unsuccessful
+ * @return bool True if the set was successful, false if it was unsuccessful.
  *
  * @throws \InvalidArgumentException
  * @throws InternalException
  */
 public function set($key, $value);
-
-/**
- * @param string $key
- * @param string $value
- *
- * @return bool True if the set was successful, false if it was unsuccessful
- *
- * @throws \InvalidArgumentException
- * @throws InternalException
- */
-public function setIfNotExists($key, $value);
 ```
 
 ## Server
 
 ```php
 /**
+ * Removes all keys.
+ *
  * @return void
  *
  * @throws \AdammBalogh\KeyValueStore\Exception\InternalException

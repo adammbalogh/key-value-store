@@ -20,19 +20,20 @@ This library provides an abstraction layer for key value stores. It is literally
 
 **These are separate packages!**
 
-* **File**
- * **package:** [key-value-store-file](https://github.com/adammbalogh/key-value-store-file)
-* **Memcached**
- * **package:** [key-value-store-memcached](https://github.com/adammbalogh/key-value-store-memcached)
-* **Redis**
- * **package:** [key-value-store-redis](https://github.com/adammbalogh/key-value-store-redis)
 * **Null**
- * **package:** [key-value-store-null](https://github.com/adammbalogh/key-value-store-null)
+ * package: [key-value-store-null](https://github.com/adammbalogh/key-value-store-null)
+* **File**
+ * package: [key-value-store-file](https://github.com/adammbalogh/key-value-store-file)
+* **Memcached**
+ * package: [key-value-store-memcached](https://github.com/adammbalogh/key-value-store-memcached)
+* **Redis**
+ * package: [key-value-store-redis](https://github.com/adammbalogh/key-value-store-redis)
 
 ### Planned adapters
 
 * Memory (array)
 * Shared memory
+* Memcache
 * Apc
 * Couchbase
 

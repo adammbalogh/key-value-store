@@ -22,6 +22,8 @@ This library provides an abstraction layer for key value stores. It is literally
 
 * **Null**
  * package: [key-value-store-null](https://github.com/adammbalogh/key-value-store-null)
+* **Memory** (array)
+ * package: [key-value-store-memory](https://github.com/adammbalogh/key-value-store-memory)
 * **File**
  * package: [key-value-store-file](https://github.com/adammbalogh/key-value-store-file)
 * **Memcached**
@@ -31,7 +33,6 @@ This library provides an abstraction layer for key value stores. It is literally
 
 ### Planned adapters
 
-* Memory (array)
 * Shared memory
 * Memcache
 * Apc

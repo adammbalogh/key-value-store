@@ -24,7 +24,7 @@ This library provides an abstraction layer for key value stores. It is literally
 |---------------|------------|
 | Null          | [key-value-store-null](https://github.com/adammbalogh/key-value-store-null) |
 | Memory        | [key-value-store-memory](https://github.com/adammbalogh/key-value-store-memory) |
-| Shared Memory | [key-value-store-memory](https://github.com/adammbalogh/key-value-store-shared-memory) |
+| Shared Memory | [key-value-store-shared-memory](https://github.com/adammbalogh/key-value-store-shared-memory) |
 | File          | [key-value-store-file](https://github.com/adammbalogh/key-value-store-file) |
 | Memcached     | [key-value-store-memcached](https://github.com/adammbalogh/key-value-store-memcached) |
 | Redis         | [key-value-store-redis](https://github.com/adammbalogh/key-value-store-redis) |

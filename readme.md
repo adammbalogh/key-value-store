@@ -31,7 +31,6 @@ This library provides an abstraction layer for key value stores. It is literally
 
 ### Planned adapters
 
-* Shared memory
 * Memcache
 * Apc
 * Couchbase

@@ -25,6 +25,7 @@ This library provides an abstraction layer for key value stores. It is literally
 | Memory        | [key-value-store-memory](https://github.com/adammbalogh/key-value-store-memory) |
 | Shared Memory | [key-value-store-shared-memory](https://github.com/adammbalogh/key-value-store-shared-memory) |
 | File          | [key-value-store-file](https://github.com/adammbalogh/key-value-store-file) |
+| Memcache      | [key-value-store-memcache](https://github.com/tikaszvince/key-value-store-memcache) |
 | Memcached     | [key-value-store-memcached](https://github.com/adammbalogh/key-value-store-memcached) |
 | Redis         | [key-value-store-redis](https://github.com/adammbalogh/key-value-store-redis) |
 | Replicator    | [key-value-store-replicator](https://github.com/adammbalogh/key-value-store-replicator) |
@@ -34,7 +35,6 @@ This library provides an abstraction layer for key value stores. It is literally
 
 * Apc
 * Couchbase
-* Memcache
 * ?
 
 # Installation

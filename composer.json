@@ -33,6 +33,7 @@
         "adammbalogh/key-value-store-memory": "For using Memory storage",
         "adammbalogh/key-value-store-shared-memory": "For using Shared Memory storage",
         "adammbalogh/key-value-store-file": "For using File storage",
+        "tikaszvince/key-value-store-memcache": "For using Memcache storage",
         "adammbalogh/key-value-store-memcached": "For using Memcached storage",
         "adammbalogh/key-value-store-redis": "For using Redis storage",
         "adammbalogh/key-value-store-replicator": "For using Replicator adapter"

@@ -1,12 +1,13 @@
 <?php namespace AdammBalogh\KeyValueStore;
 
 use AdammBalogh\KeyValueStore\Contract\AdapterInterface;
+use AdammBalogh\KeyValueStore\Contract\KeyValueStoreInterface;
 use AdammBalogh\KeyValueStore\Implementation\AdapterTrait;
 use AdammBalogh\KeyValueStore\Implementation\KeyTrait;
 use AdammBalogh\KeyValueStore\Implementation\ValueTrait;
 use AdammBalogh\KeyValueStore\Implementation\ServerTrait;
 
-class KeyValueStore implements AdapterInterface
+class KeyValueStore implements KeyValueStoreInterface
 {
     use AdapterTrait, KeyTrait, ValueTrait, ServerTrait {
         AdapterTrait::getAdapter insteadof KeyTrait;
